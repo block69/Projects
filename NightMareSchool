@@ -1,0 +1,7 @@
+-- https://www.roblox.com/games/10675175616/Mr-NIGHTMARES-SCHOOL-SCARY-OBBY
+
+for i, v in next, workspace.Checkpoints:GetChildren() do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+task.wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
