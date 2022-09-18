@@ -1,0 +1,41 @@
+if game.PlaceId == 183364845 then
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("TyTy Hub V2", "DarkTheme")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Main")
+local Tab2 = Window:NewTab("Credits")
+local Section2 = Tab2:NewSection("Main")
+
+Section:NewButton("Infinite Gems", "Made by Doofenshmirtz", function()
+game:GetService("ReplicatedStorage").SetGamemode:FireServer("Ridiculous",true)
+game:GetService("ReplicatedStorage").SetGamemode:FireServer("Impossible",true)
+game:GetService("ReplicatedStorage").SetGamemode:FireServer("Ragequit",true)
+game:GetService("ReplicatedStorage").SetGamemode:FireServer("Mirror",true)
+game:GetService("ReplicatedStorage").SetZombieMode:FireServer(true)
+local lands = {"Normal", "Peach Desert", "Cybernaut", "Moon", "Cosmic","Chromium","Birchock"}
+while true do
+   wait()
+for i,v in pairs(lands) do
+game:GetService("ReplicatedStorage").SetDimension:FireServer(v)
+for i = 1,30 do
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(5.800519943237305,"Level "..tostring(i),v,false)
+end
+end
+end
+	end
+)
+Section:NewButton("Infinite Stars", "Made by block", function()
+		while task.wait(0.1) do
+	local stars = {"Level 1", "Level 2", "Level 3", "Level 4", "Level 5","Level 6", "Level 7"}
+
+for i, v in pairs(stars) do
+
+game:GetService("ReplicatedStorage").GotStar:FireServer(v)
+end
+end
+	end
+)
+Section2:NewLabel("Credits to Block, Doofenshmirtz!")
+Section2:NewLabel("INF THINGS CANNOT BE STOPPED!")
+end
