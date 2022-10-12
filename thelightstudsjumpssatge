@@ -1,4 +1,4 @@
-Open Sourced For you "TheLight"
+-- Open Sourced For you "TheLight"
 -- https://www.roblox.com/games/10974008852/Stud-Jumps-Stages
 if game.PlaceId == 10974008852 then
 repeat until game:IsLoaded()
