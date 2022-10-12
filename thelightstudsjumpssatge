@@ -1,1 +1,45 @@
+Open Sourced For you "TheLight"
+-- https://www.roblox.com/games/10974008852/Stud-Jumps-Stages
+if game.PlaceId == 10974008852 then
+repeat until game:IsLoaded()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("TYTY HUB V2", "DarkTheme")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Main")
+local Tab2 = Window:NewTab("Credits")
+local Section2 = Tab2:NewSection("Credits")
+local head = game.Players.LocalPlayer.Character.HumanoidRootPart
 
+Section:NewButton("Get Ball Path", "Simple dawg", function()
+for i, v in pairs(game:GetService("Workspace")["The End Obby..!!"]["Ball Givers"]["By: LCPLgeek"]["Ball Path Giver"]:GetDescendants()) do
+	if v:IsA('TouchTransmitter') then
+		firetouchinterest(head, v.Parent, 0)
+		firetouchinterest(head, v.Parent, 1)
+	end
+end
+end)
+
+Section:NewButton("Teleport to the final stage", "will be updated", function()
+	local dumbdev = game.Workspace:WaitForChild('227')
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = dumbdev.CFrame
+end)
+
+Section:NewSlider("Walkspeed", "Encounter Jack (Encounter Jack)", 500, 0, function(s)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewButton("Get A Square Path", "Meet Square (Encounter Square)", function()
+	for i, v in pairs(game:GetService("Workspace")["The End Obby..!!"].Paths["make you're giver"]["PUT THE WEAPON IN THIS BRICK"]:GetChildren()) do
+		if v:IsA("TouchTransmitter") then
+			firetouchinterest(head, v.Parent, 0)
+			firetouchinterest(head, v.Parent, 1)
+		end
+	end
+end)
+
+Section2:NewLabel("Credits all go to block")
+
+Section:NewKeybind("Close GUI", "no", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
+end
