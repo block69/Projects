@@ -1,0 +1,36 @@
+if game.PlaceId == 9742783208 then
+	repeat until game:IsLoaded()
+-- Getting UI Library form the Internet
+local MangoLib = loadstring(game:HttpGet("https://pastebin.com/raw/N3sKKx0a"))()
+-- Creating The Window
+local win = MangoLib:Window("TyTy Hub")
+-- Creating A Tab
+local Sec = win:Tab("Main")
+local Sec2 = win:Tab("Teleports")
+
+Sec:TextBox("Name the item you want (for ex. A friend)", function(value)
+local args = {
+    [1] = value,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events.ShopRemote:FireServer(unpack(args))
+
+end)
+
+Sec:TextBox("Set Money", function(value)
+local args = {
+    [1] = -value
+}
+
+game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.CostumeCoins.Frame.ExchangeFrame.RemoteEvent:FireServer(unpack(args))	
+end)
+
+Sec2:Button("Teleport to shop", function()
+	if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-268.792236, 9.004673, -226.002258, -0.00284211431, -1.62743614e-08, 0.999995947, 1.20288988e-07, 1, 1.6616303e-08, -0.999995947, 1.20335727e-07, -0.00284211431)
+end
+end)
+
+
+end
