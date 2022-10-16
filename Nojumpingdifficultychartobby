@@ -1,0 +1,18 @@
+if game.PlaceId == 6422033265 then
+	repeat until game:IsLoaded()
+	-- Getting UI Library form the Internet
+local MangoLib = loadstring(game:HttpGet("https://pastebin.com/raw/N3sKKx0a"))()
+-- Creating The Window
+local win = MangoLib:Window("TyTy Hub V3")
+-- Creating A Tab
+local Sec = win:Tab("Main")
+
+Sec:TextBox("Get to any stage. must be in order.", function(value)
+	for i, v in next, game:GetService("Workspace").Checkpoints:GetChildren() do
+	if v:IsA('Part') and v.Name == value then 
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+
+	end
+end
+end)
+end
