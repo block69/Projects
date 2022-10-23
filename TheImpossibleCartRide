@@ -1,0 +1,57 @@
+-- https://www.roblox.com/games/7909596432/The-Impossible-Cart-Ride-Of-DOOM
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "TyTy Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Tab:AddSection({
+	Name = "Givers"
+})
+OrionLib:MakeNotification({
+	Name = "TyTy Hub",
+	Content = "Loaded!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+Tab:AddButton({
+	Name = "Give Red Path",
+	Callback = function()
+      		for i ,v in pairs(game:GetService("Workspace")["Path giver (Dissapears)"]["Red Path Giver"].path:GetChildren()) do
+	if v:IsA('TouchTransmitter') and v.Name == "TouchInterest" then
+		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1)
+	end
+end
+  	end    
+})
+local Section = Tab:AddSection({
+	Name = "Teleports/Tweens"
+})
+Tab:AddButton({
+	Name = "Tween to the finish (anticheat bypass)",
+	Callback = function()
+      		local teleport = {
+	loc1 = Vector3.new(-32.23843002319336, 68.30435943603516, -653.4511108398438, -32.23843002319336, 68.30435943603516, -653.4511108398438, -32.23843002319336, 68.30435943603516, -653.4511108398438)
+}
+
+lp = game.Players.LocalPlayer
+local ts = game:GetService("TweenService")
+local info = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
+
+function play(v)
+	local cf = CFrame.new(v)
+	local a = ts:Create(lp.Character.HumanoidRootPart, info, {CFrame = cf})
+	a:Play()
+end
+play(Vector3.new(-32.23843002319336, 68.30435943603516, -653.4511108398438, -32.23843002319336, 68.30435943603516, -653.4511108398438, -32.23843002319336, 68.30435943603516, -653.4511108398438))
+  	end    
+})
+Tab:AddButton({
+	Name = "Teleport to the end",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-33.0092239, 68.3043594, -653.041809, 0.999780297, -2.14756621e-08, -0.0209597275, 2.37150832e-08, 1, 1.06595451e-07, 0.0209597275, -1.07069098e-07, 0.999780297)
+  	end    
+})
+OrionLib:Init()
