@@ -1,0 +1,80 @@
+if game.PlaceId == 10543787858 then
+	repeat until game:IsLoaded()
+	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+	local Window = OrionLib:MakeWindow({Name = "TyTy Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	OrionLib:MakeNotification({
+	Name = "TyTy Hub",
+	Content = "Loaded!",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
+	local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Tab2 = Window:MakeTab({
+	Name = "Badges",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Tab:AddSection({
+	Name = "Main"
+})
+local Section2 = Tab2:AddSection({
+	Name = "Badges"
+})
+Tab:AddButton({
+	Name = "Add 1k Size",
+	Callback = function()
+game:GetService("ReplicatedStorage").onethousand:InvokeServer()
+  	end    
+})
+Tab:AddButton({
+	Name = "Minus 1k Size",
+	Callback = function()
+game:GetService("ReplicatedStorage").onethousandbad:InvokeServer()
+  	end    
+})
+Tab:AddButton({
+	Name = "Add 100 Size",
+	Callback = function()
+game:GetService("ReplicatedStorage").onehundo:InvokeServer()
+  	end    
+})
+Tab:AddButton({
+	Name = "Minus 100 Size",
+	Callback = function()
+game:GetService("ReplicatedStorage").onehundobad:InvokeServer()
+  	end    
+})
+Tab:AddButton({
+	Name = "Win",
+	Callback = function()
+      	for i,v in pairs(game:GetService("Workspace").Win:GetChildren()) do
+	if v.ClassName == "TouchTransmitter" and v.Name == 'TouchInterest' then
+		firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+		firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
+	end
+end
+  	end    
+})
+Tab:AddToggle({
+	Name = "Autofarm wins",
+	Default = false,
+	Callback = function(Value)
+		getgenv().State = Value
+		while task.wait() do
+			if getgenv().State then
+	for i,v in pairs(game:GetService("Workspace").Win:GetChildren()) do
+	if v.ClassName == "TouchTransmitter" and v.Name == 'TouchInterest' then
+		firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+		firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
+	end
+end
+			end
+		end
+	end    
+})
+end
+OrionLib:Init()
