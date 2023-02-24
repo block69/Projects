@@ -1,0 +1,39 @@
+-- Creating A Notification
+if not game.PlaceId == 2933728926 then
+	MangoLib:Notify("Notification!", "Wrong Game")
+end
+
+-- Getting UI Library form the Internet
+local MangoLib = loadstring(game:HttpGet("https://pastebin.com/raw/N3sKKx0a"))()
+
+-- Creating The Window
+local win = MangoLib:Window("TyTy Hub")
+
+-- Creating A Tab
+local TabFarm = win:Tab("Autofarm")
+
+-- Creating A Toggle
+TabFarm:Toggle("Farm", function(ass)
+    getgenv().farm = ass
+	if getgenv().farm then
+		game:GetService("RunService").Stepped:Connect(function()
+			
+for i,v in pairs(game:GetService("Workspace").Essentials.Objects["1"]:GetDescendants()) do
+	if v.Name == 'Hitbox' then
+		v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	end
+end
+	end
+)
+end
+end
+)
+
+TabFarm:Toggle("Autosell", function(Bool)
+	getgenv().sell = Bool
+	if getgenv().sell then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Essentials.Map["1"].Sell.CFrame
+		task.wait(0)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Essentials.Map["1"].Sell.CFrame
+	end
+end)
