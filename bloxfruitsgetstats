@@ -1,0 +1,15 @@
+function getstats(name)
+    for i,v in pairs(game:GetService('Players'):GetChildren()) do
+        if v.Name == name then
+        local plrstats = v.Data.Stats do
+                print('--------------------- The Start of the getstats ---------------------')
+                warn(name .. ' has ' .. plrstats['Defense'].Level.Value .. ' Defense level.', '\n')
+                warn(name .. ' has ' .. plrstats['Demon Fruit'].Level.Value .. ' Blox Fruits level.', '\n')
+                warn(name .. ' has ' .. plrstats['Gun'].Level.Value .. ' Gun level.', '\n')
+                warn(name .. ' has ' .. plrstats['Melee'].Level.Value .. ' Melee level.', '\n')
+                warn(name .. ' has ' .. plrstats['Sword'].Level.Value .. ' Sword level.', '\n')
+                print('--------------------- The End of the getstats ---------------------')
+            end
+        end 
+     end
+ end
